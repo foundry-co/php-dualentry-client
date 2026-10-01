@@ -1,0 +1,50 @@
+{
+    "name": "foundry-co/dualentry",
+    "description": "Standalone PHP client for the DualEntry public API, built on Guzzle, with an optional Laravel bridge.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["dualentry", "accounting", "api", "client", "guzzle", "laravel"],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.8",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0",
+        "ramsey/uuid": "^4.7"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.32",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "suggest": {
+        "illuminate/support": "Required to use the Laravel service provider and facade."
+    },
+    "autoload": {
+        "psr-4": {
+            "FoundryCo\\DualEntry\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FoundryCo\\DualEntry\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FoundryCo\\DualEntry\\Laravel\\DualEntryServiceProvider"
+            ],
+            "aliases": {
+                "DualEntry": "FoundryCo\\DualEntry\\Laravel\\Facades\\DualEntry"
+            }
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs": "pint"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
