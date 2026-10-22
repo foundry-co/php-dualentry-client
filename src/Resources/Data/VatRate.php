@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\VatRateType;
 use FoundryCo\DualEntry\ValueObjects\Enums\VatTaxType;
@@ -26,6 +27,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\VatTaxType;
  */
 final class VatRate
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

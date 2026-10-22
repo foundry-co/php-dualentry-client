@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 
 /**
@@ -19,6 +20,7 @@ use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
  */
 final class BankConnection
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

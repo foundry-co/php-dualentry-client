@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\FieldType;
 
@@ -22,6 +23,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\FieldType;
  */
 final class CustomField
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

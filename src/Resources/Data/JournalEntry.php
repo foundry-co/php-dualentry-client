@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\RecordStatus;
 use FoundryCo\DualEntry\ValueObjects\Enums\SystemCurrencies;
@@ -39,6 +40,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\SystemCurrencies;
  */
 final class JournalEntry
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\Sources;
 
@@ -17,6 +18,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\Sources;
  */
 final class ProductTaxCode
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

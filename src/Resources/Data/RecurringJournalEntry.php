@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\RecurringStatus;
 use FoundryCo\DualEntry\ValueObjects\Enums\RecurringType;
@@ -30,6 +31,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\RecurringType;
  */
 final class RecurringJournalEntry
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(

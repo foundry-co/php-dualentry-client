@@ -2,6 +2,7 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
+use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\BaseCurrencyAnchor;
 use FoundryCo\DualEntry\ValueObjects\Enums\RecordStatus;
@@ -36,6 +37,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\RecordStatus;
  */
 final class BankTransfer
 {
+    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(
