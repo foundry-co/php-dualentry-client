@@ -2,7 +2,6 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
-use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 use FoundryCo\DualEntry\ValueObjects\Enums\AccountType;
 use FoundryCo\DualEntry\ValueObjects\Enums\Category1099;
@@ -15,7 +14,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\SystemCurrencies;
  * @method $this withAccountType(AccountType $accountType)
  * @method $this withCurrencyIso4217Code(SystemCurrencies $currencyIso4217Code)
  * @method $this withIsActive(bool $isActive)
- * @method $this withParentAccountId(int $parentAccountId)
+ * @method $this withParentAccountId(?int $parentAccountId)
  * @method $this withCreatedAt(?string $createdAt)
  * @method $this withUpdatedAt(?string $updatedAt)
  * @method $this withCreatedBy(?array $createdBy)
@@ -36,7 +35,6 @@ use FoundryCo\DualEntry\ValueObjects\Enums\SystemCurrencies;
  */
 final class Account
 {
-    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(
@@ -45,7 +43,7 @@ final class Account
         public readonly AccountType $accountType,
         public readonly SystemCurrencies $currencyIso4217Code,
         public readonly bool $isActive,
-        public readonly int $parentAccountId,
+        public readonly ?int $parentAccountId,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
         public readonly ?array $createdBy = null,
@@ -76,7 +74,7 @@ final class Account
         AccountType $accountType,
         SystemCurrencies $currencyIso4217Code,
         bool $isActive,
-        int $parentAccountId,
+        ?int $parentAccountId = null,
         ?string $description = null,
         ?int $companyId = null,
         ?Category1099 $category1099 = null,
@@ -124,7 +122,7 @@ final class Account
             accountType: AccountType::fromWire($data['account_type']),
             currencyIso4217Code: SystemCurrencies::fromWire($data['currency_iso_4217_code']),
             isActive: $data['is_active'],
-            parentAccountId: $data['parent_account_id'],
+            parentAccountId: $data['parent_account_id'] ?? null,
             createdAt: $data['created_at'] ?? null,
             updatedAt: $data['updated_at'] ?? null,
             createdBy: $data['created_by'] ?? null,
