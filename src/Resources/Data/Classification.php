@@ -2,7 +2,6 @@
 
 namespace FoundryCo\DualEntry\Resources\Data;
 
-use FoundryCo\DualEntry\Resources\Data\Concerns\HasDisplayId;
 use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
 
 /**
@@ -10,7 +9,7 @@ use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
  * @method $this withIsActive(bool $isActive)
  * @method $this withSelections(array $selections)
  * @method $this withRequiredForRecords(array $requiredForRecords)
- * @method $this withParentId(int $parentId)
+ * @method $this withParentId(?int $parentId)
  * @method $this withCreatedAt(?string $createdAt)
  * @method $this withUpdatedAt(?string $updatedAt)
  * @method $this withCreatedBy(?array $createdBy)
@@ -21,7 +20,6 @@ use FoundryCo\DualEntry\Resources\Data\Concerns\ImmutableAttributes;
  */
 final class Classification
 {
-    use HasDisplayId;
     use ImmutableAttributes;
 
     private function __construct(
@@ -29,7 +27,7 @@ final class Classification
         public readonly bool $isActive,
         public readonly array $selections,
         public readonly array $requiredForRecords,
-        public readonly int $parentId,
+        public readonly ?int $parentId,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
         public readonly ?array $createdBy = null,
@@ -49,7 +47,7 @@ final class Classification
         bool $isActive,
         array $selections,
         array $requiredForRecords,
-        int $parentId,
+        ?int $parentId = null,
         ?int $id = null,
     ): self {
         return new self(
@@ -76,7 +74,7 @@ final class Classification
             isActive: $data['is_active'],
             selections: $data['selections'],
             requiredForRecords: $data['required_for_records'],
-            parentId: $data['parent_id'],
+            parentId: $data['parent_id'] ?? null,
             createdAt: $data['created_at'] ?? null,
             updatedAt: $data['updated_at'] ?? null,
             createdBy: $data['created_by'] ?? null,

@@ -13,7 +13,7 @@ webhooks, approval workflows, tax calculation, data exports, and more.
 
 ## Requirements
 
-- PHP 8.3+
+- PHP 8.4+
 - An organization API key from DualEntry's **API Keys** settings page
 
 ## Installation
