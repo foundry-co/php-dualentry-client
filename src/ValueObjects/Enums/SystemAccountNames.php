@@ -25,6 +25,7 @@ enum SystemAccountNames: string
     case UnrealizedGainLoss = 'UNREALIZED_GAIN_LOSS';
     case MatchingGainLoss = 'MATCHING_GAIN_LOSS';
     case RoundingGainLoss = 'ROUNDING_GAIN_LOSS';
+    case InventoryShrinkage = 'INVENTORY_SHRINKAGE';
 
     public static function fromWire(string $value): self
     {
@@ -50,6 +51,7 @@ enum SystemAccountNames: string
             'Unrealized Gain/Loss' => self::UnrealizedGainLoss,
             'Matching Gain/Loss' => self::MatchingGainLoss,
             'Rounding Gain/Loss' => self::RoundingGainLoss,
+            'Inventory Shrinkage' => self::InventoryShrinkage,
         };
     }
 
@@ -77,6 +79,7 @@ enum SystemAccountNames: string
             self::UnrealizedGainLoss => 'Unrealized Gain/Loss',
             self::MatchingGainLoss => 'Matching Gain/Loss',
             self::RoundingGainLoss => 'Rounding Gain/Loss',
+            self::InventoryShrinkage => 'Inventory Shrinkage',
         };
     }
 }

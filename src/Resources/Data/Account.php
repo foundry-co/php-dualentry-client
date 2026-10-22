@@ -12,7 +12,7 @@ use FoundryCo\DualEntry\ValueObjects\Enums\SystemCurrencies;
  * @method $this withName(string $name)
  * @method $this withNumber(int $number)
  * @method $this withAccountType(AccountType $accountType)
- * @method $this withCurrencyIso4217Code(SystemCurrencies $currencyIso4217Code)
+ * @method $this withCurrencyIso4217Code(?SystemCurrencies $currencyIso4217Code)
  * @method $this withIsActive(bool $isActive)
  * @method $this withParentAccountId(?int $parentAccountId)
  * @method $this withCreatedAt(?string $createdAt)
@@ -41,7 +41,7 @@ final class Account
         public readonly string $name,
         public readonly int $number,
         public readonly AccountType $accountType,
-        public readonly SystemCurrencies $currencyIso4217Code,
+        public readonly ?SystemCurrencies $currencyIso4217Code,
         public readonly bool $isActive,
         public readonly ?int $parentAccountId,
         public readonly ?string $createdAt = null,
@@ -72,7 +72,7 @@ final class Account
         string $name,
         int $number,
         AccountType $accountType,
-        SystemCurrencies $currencyIso4217Code,
+        ?SystemCurrencies $currencyIso4217Code,
         bool $isActive,
         ?int $parentAccountId = null,
         ?string $description = null,
@@ -120,7 +120,7 @@ final class Account
             name: $data['name'],
             number: $data['number'],
             accountType: AccountType::fromWire($data['account_type']),
-            currencyIso4217Code: SystemCurrencies::fromWire($data['currency_iso_4217_code']),
+            currencyIso4217Code: ($data['currency_iso_4217_code'] ?? '') !== '' ? SystemCurrencies::fromWire($data['currency_iso_4217_code']) : null,
             isActive: $data['is_active'],
             parentAccountId: $data['parent_account_id'] ?? null,
             createdAt: $data['created_at'] ?? null,
@@ -150,7 +150,7 @@ final class Account
             'name' => $this->name,
             'number' => $this->number,
             'account_type' => $this->accountType->toWire(),
-            'currency_iso_4217_code' => $this->currencyIso4217Code->toWire(),
+            'currency_iso_4217_code' => $this->currencyIso4217Code?->toWire(),
             'is_active' => $this->isActive,
             'parent_account_id' => $this->parentAccountId,
             'description' => $this->description,
